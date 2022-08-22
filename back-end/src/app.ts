@@ -3,8 +3,8 @@ import cors from "cors";
 import prisma from "./database.js";
 
 const app = express();
-app.use(cors());
 app.use(json());
+app.use(cors());
 
 app.get("/students", async (req: Request, res: Response) => {
   const students = await prisma.student.findMany();
