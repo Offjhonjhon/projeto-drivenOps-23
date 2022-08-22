@@ -8,7 +8,6 @@ app.use(cors());
 
 app.get("/students", async (req: Request, res: Response) => {
   const students = await prisma.student.findMany();
-  console.log("aq")
   res.send(students);
 });
 

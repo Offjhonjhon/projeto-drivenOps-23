@@ -7,7 +7,7 @@ services:
     ports:
       - 1234:5432
     env_file:
-      - back-end/.container.env
+      - back-end/.env
     volumes:
       - pg_students:/var/lib/postgresql/data
 
@@ -19,19 +19,19 @@ services:
     depends_on:
       - db_students
     env_file:
-      - back-end/.container.env
+      - back-end/.env
 
   app_react:
-    build: ./front-end
     container_name: app_react
+    build: ./front-end
     volumes:
       - build_front:/var/www/html
 
   nginx:
-    build: ./nginx
     container_name: nginx
+    build: ./nginx
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - build_front:/var/www/html
     depends_on:

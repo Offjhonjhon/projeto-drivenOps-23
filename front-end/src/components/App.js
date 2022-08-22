@@ -5,13 +5,7 @@ function App() {
   const [student, setStudent] = useState(null);
 
   useEffect(async () => {
-    let API_URL = '';
-    if (process.env.MODE_ENV = 'DEV') {
-      API_URL = process.env.REACT_APP_BASE_URL_LOCAL;
-    }
-    else {
-      API_URL = process.env.REACT_APP_BASE_URL;
-    }
+    const API_URL = process.env.REACT_APP_BASE_URL;
     console.log(API_URL)
     try {
       const response = await axios.get(`${API_URL}/students/random`);
